@@ -1,7 +1,7 @@
 @php
     $nav_links = [
 [
-    'name'=> 'Home',
+    'name'=> 'Inicio',
     'route'=>route('home'),
     'active'=> request()->routeIs('home')
 ],
@@ -250,13 +250,14 @@
         @else
             <div class ="py-1 border-t border-gray-200">
                 <x-jet-responsive-nav-link href="{{  route ('login')    }}" :active=" request()->routeIs('login') ">
-                    Login
+                    Iniciar Sesión
                 </x-jet-responsive-nav-link>
 
                 <x-jet-responsive-nav-link href="{{  route('register')  }}" :active=" request()->routeIs('register') ">
-                     Register
+                     Registrarse
                     </x-jet-responsive-nav-link>
             </div>
         @endauth
     </div>
+ </div>
 </nav>

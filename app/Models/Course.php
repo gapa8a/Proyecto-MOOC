@@ -9,9 +9,23 @@ class Course extends Model
 {
     use HasFactory;
     protected $guarded = ['id','status'];
+    protected $withCount = ['students','reviews'];
     const BORRADOR =1;
     const REVISION =2;
     const PUBLICADO =3;
+
+    public function getRatingAttribute(){
+        if($this->reviews_count){
+             return round($this->reviews->avg('rating'),1);
+        }else{
+            return 5;
+        }
+
+    }
+    public function getRouteKeyName()
+    {
+        return "slug";
+    }
 
 
     //Relación uno a muchos
@@ -55,12 +69,13 @@ class Course extends Model
     }
 
     //Relación muchos a muchos 
+
     public function students(){
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsToMany('App\Models\User');
     }
     //Relación uno a uno polimorfica
     public function image(){
-        return $this->morphOne('App\Models\Image','imageable');
+        return $this->morphOne('App\Models\Image', 'imageable');
     }
     public function lessons(){
         return $this->hasManyThrough('App\Models\Lesson','App\Models\Section');

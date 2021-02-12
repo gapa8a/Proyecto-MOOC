@@ -23,8 +23,8 @@ class ImageFactory extends Factory
     {
         return [
             'url' =>'cursos/' .$this->faker->image('public/storage/cursos',640,480,null, false), //cursos/imagen.jpg
-            'imageable_id'=>null,
-            'imageable_type'=>null
+            // 'imageable_id'=>null,
+            // 'imageable_type'=>null
         ];
     }
 }
