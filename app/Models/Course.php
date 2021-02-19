@@ -22,6 +22,19 @@ class Course extends Model
         }
 
     }
+
+    //Query scopes
+    public function scopeCategory($query,$category_id){
+        if($category_id){
+            return $query->where('category_id',$category_id);
+        }
+    }
+
+    public function scopeLevel($query,$level_id){
+        if($level_id){
+            return $query->where('level_id',$level_id);
+        }
+    }
     public function getRouteKeyName()
     {
         return "slug";
@@ -61,7 +74,7 @@ class Course extends Model
     }
 
     public function category(){
-        return $this->belongsTo('App\Models\Level');
+        return $this->belongsTo('App\Models\Category');
     }
 
     public function price(){
