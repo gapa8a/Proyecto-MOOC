@@ -120,8 +120,25 @@
                             </div>
 
                             <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                {{ __('Profile') }}
+                                Perfil
                             </x-jet-dropdown-link>
+
+                            @can('Leer Cursos')
+                                
+                            <x-jet-dropdown-link href="{{ route('instructor.courses.index') }}">
+                                Instructor
+                            </x-jet-dropdown-link>
+
+                            @endcan
+
+                            @can('Ver Dashboard')
+                                
+                            <x-jet-dropdown-link href="{{ route('admin.home') }}">
+                                Administrador
+                            </x-jet-dropdown-link>
+
+                            @endcan
+
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
@@ -138,14 +155,14 @@
                                 <x-jet-dropdown-link href="{{ route('logout') }}"
                                          onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                    {{ __('Logout') }}
+                                    {{ __('Cerrar Sesión') }}
                                 </x-jet-dropdown-link>
                             </form>
                         </x-slot>
                     </x-jet-dropdown>
                     @else
-                    <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
-                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                    <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Iniciar Sesión</a>
+                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Registrarse</a>
                     @endauth
                 </div>
             </div>
@@ -195,8 +212,22 @@
             <div class="mt-3 space-y-1">
                 <!-- Account Management -->
                 <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                    {{ __('Profile') }}
+                    Perfil
                 </x-jet-responsive-nav-link>
+
+
+                    @can('Leer Cursos')
+                        <x-jet-responsive-nav-link href="{{ route('instructor.courses.index') }}" :active="request()->routeIs('instructor.courses.index')">
+                            Instructor
+                        </x-jet-responsive-nav-link>
+                    @endcan
+                
+                    @can('Ver Dashboard')
+                    <x-jet-responsive-nav-link href="{{ route('admin.home') }}" :active="request()->routeIs('instructor.courses.index')">
+                        Administrador
+                    </x-jet-responsive-nav-link>
+                @endcan
+            
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                     <x-jet-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
@@ -211,7 +242,7 @@
                     <x-jet-responsive-nav-link href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                     this.closest('form').submit();">
-                        {{ __('Logout') }}
+                        {{ __('Cerrar Sesión') }}
                     </x-jet-responsive-nav-link>
                 </form>
 
