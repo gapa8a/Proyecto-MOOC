@@ -1,9 +1,9 @@
 <div class="container py-10">
     <!-- This example requires Tailwind CSS v2.0+ -->
     <x-table-responsive>
-        <div class="px-6 py-4">
-            <input wire:keydown ="limpiar_page" wire:model ="search" class="form-input w-full shadow-sm" placeholder="Buscar un curso...">
-
+        <div class="px-6 py-4 flex">
+            <input wire:keydown ="limpiar_page" wire:model ="search" class="form-input flex-1 shadow-sm" placeholder="Buscar un curso...">
+            <a class="btn btn-danger ml-2" href="{{route('instructor.courses.create')}}">Crear Nuevo Curso</a>
         </div>
         
         @if ($courses->count())
@@ -35,7 +35,14 @@
                 <td class="px-6 py-4 whitespace-nowrap">
                         <div class="flex items-center">
                             <div class="flex-shrink-0 h-10 w-10">
-                                {{-- <img class="h-10 w-10 rounded-full" src="{{Storage::url($course->image->url)}}" alt="">   revisar lo de las imagenes --}}
+
+                                @isset($course->image)
+                                   <img class="h-10 w-10 rounded-full object-cover object-center" src="{{Storage::url($course->image->url)}}" alt="">   
+                                @else 
+                                <img class="h-10 w-10 rounded-full object-cover object-center" src="https://images.pexels.com/photos/207691/pexels-photo-207691.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+
+                                @endisset
+
                             </div>
                             <div class="ml-4">
                             <div class="text-sm font-medium text-gray-900">
@@ -71,7 +78,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="text-sm text-gray-500">Valoraciopnes del curso</div>
+                    <div class="text-sm text-gray-500">Valoraciones del curso</div>
             </td>
 
                 <td class="px-6 py-4 whitespace-nowrap">
