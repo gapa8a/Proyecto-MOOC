@@ -15,6 +15,10 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
+
+          // Clear cache
+          app()['cache']->forget('spatie.permission.cache');
+
         Permission::create([
             'name' => 'Crear Cursos'
             ]);

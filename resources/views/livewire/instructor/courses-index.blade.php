@@ -2,7 +2,7 @@
     <!-- This example requires Tailwind CSS v2.0+ -->
     <x-table-responsive>
         <div class="px-6 py-4 flex">
-            <input wire:keydown ="limpiar_page" wire:model ="search" class="form-input flex-1 shadow-sm" placeholder="Buscar un curso...">
+            <input wire:keydown ="limpiar_page" wire:model ="search" class="form-input flex-1 shadow-sm py-2 px-3 border border-gray-300 rounded-md  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="Buscar un curso...">
             <a class="btn btn-danger ml-2" href="{{route('instructor.courses.create')}}">Crear Nuevo Curso</a>
         </div>
         

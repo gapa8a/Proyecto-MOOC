@@ -12,7 +12,7 @@
             <div class="card-body bg-gray-100">
                 @if ($section->id == $item->id)
                     <form wire:submit.prevent="update">
-                        <input wire:model="section.name" class="form-input w-full" placeholder="Ingrese el nombre de la sección">
+                        <input wire:model="section.name" class="form-input w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Ingrese el nombre de la sección">
                         @error('section.name')
                             <span class="text-xs text-red-500">{{$message}}</span>
                         @enderror
@@ -45,7 +45,7 @@
             <div class="card-body bg-gray-100">
                 <h1 class="text-xl font-bold mb-4">Agregar nueva sección</h1>
                 <div>
-                    <input wire:model ="name"class="form-input w-full mb-4" placeholder="Escriba el nombre de la sección">
+                    <input wire:model ="name"class="form-input w-full mb-4 py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Escriba el nombre de la sección">
                     @error('name')
                         <span class="text-xs text-red-500">{{$message}}</span>
                     @enderror
