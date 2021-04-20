@@ -85,7 +85,7 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
+    'layout_fixed_sidebar' => true,
     'layout_fixed_navbar' => null,
     'layout_fixed_footer' => null,
 
@@ -261,13 +261,31 @@ return [
             // 'label'       => 4,
             // 'label_color' => 'success',
         ],
-        ['header' => 'account_settings'],
+        ['header' => 'OPCIONES DE CURSO'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
+            'text' => 'Niveles',
+            'route'  => 'admin.levels.index',
+            'icon' => 'fas fa-fw fa-chart-line',
+        ],
+
+        [
+            'text' => 'Precios',
+            'route'  => 'admin.prices.index',
+            'icon' => 'fab fa-fw fa-cc-visa',
+        ],
+
+        [
+            'text' => 'Categorías',
+            'route'  => 'admin.categories.index',
+            'icon' => 'fas fa-fw fa-cogs',
+        ],
+
+        [
+            'text' => 'Pendientes de aprobación',
+            'route'  => 'admin.courses.index',
             'icon' => 'fas fa-fw fa-user',
         ],
-        [
+       /*  [
             'text' => 'change_password',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
@@ -325,7 +343,7 @@ return [
             'text'       => 'information',
             'icon_color' => 'cyan',
             'url'        => '#',
-        ],
+        ], */
     ],
 
     /*

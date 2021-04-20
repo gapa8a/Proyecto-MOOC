@@ -41,6 +41,12 @@ class Course extends Model
     }
 
 
+    //Relación uno a uno 
+
+    public function observation(){
+        return $this->hasOne('App\Models\Observation');
+    }
+
     //Relación uno a muchos
     public function reviews(){
         return $this->hasMany('App\Models\Review');
@@ -78,7 +84,7 @@ class Course extends Model
     }
 
     public function price(){
-        return $this->belongsTo('App\Models\Level');
+        return $this->belongsTo('App\Models\Price');
     }
 
     //Relación muchos a muchos 

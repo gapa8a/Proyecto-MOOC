@@ -29,7 +29,7 @@
             </section>
             
             <section class="mb-12">
-                <h1 class="font-fold text-3xl mb-2">Contenido</h1>
+                <h1 class="font-bold text-3xl mb-2">Contenido</h1>
                 @foreach ($course->sections as $section)
                     <article class="mb-4 shadow" @if ($loop->first)
                         x-data="{open: true}"
@@ -71,9 +71,12 @@
             <section>
                 <h1 class="font-bold text-3xl">Descripción</h1>
                 <div class="text-gray-700 text-base">
-                    {{$course->description}}   
+                    {!!$course->description!!}  
                 </div>
             </section>
+
+            @livewire('courses-reviews', ['course' => $course])
+
         </div>
         <div class="order-1 lg:order-2">
             <section class="card mb-4">
@@ -92,10 +95,21 @@
 
                         @else
 
-                            <form action="{{route('courses.enrolled',$course)}}" method="post">
-                                @csrf
-                                <button class="btn btn-danger btn-block mt-4" type="submit"> Inscribirse</button>
-                            </form>
+                        @if ($course->price->value ==0)
+                            
+                        <p class="text-2xl font-bold text-gray-500 mt-3 mb-2">GRATIS</p>
+
+
+                        <form action="{{route('courses.enrolled',$course)}}" method="post">
+                            @csrf
+                            <button class="btn btn-danger btn-block " type="submit"> Inscribirse</button>
+                        </form>
+
+                        @else
+
+                            <p class="text-2xl font-bold text-gray-500 mt-3 mb-2">US$ {{$course->price->value}}</p>
+                            <a href="{{route('payment.checkout', $course)}}" class="btn btn-danger btn-block">Comprar el curso</a>
+                        @endif    
 
                         @endcan
                </div>
