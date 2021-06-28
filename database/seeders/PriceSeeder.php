@@ -19,7 +19,7 @@ class PriceSeeder extends Seeder
             'name'=> 'Gratis',
             'value'=> 0 
         ]);
-
+/* 
         Price::create([
             'name'=> '4.99 US$ (nivel 1)',
             'value'=> 4.99
@@ -33,6 +33,6 @@ class PriceSeeder extends Seeder
         Price::create([
             'name'=> '11.99 US$ (nivel 2)',
             'value'=> 11.99
-        ]);
+        ]); */
     }
 }

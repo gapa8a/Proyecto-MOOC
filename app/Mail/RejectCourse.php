@@ -32,7 +32,7 @@ class RejectCourse extends Mailable
     public function build()
     {
         return $this->view('mail.reject-course')
-        ->subject('Curso rechazado en la plataform Proyecto MOOC');
+        ->subject('Curso rechazado en la plataforma Proyecto MOOC');
 
     }
 }

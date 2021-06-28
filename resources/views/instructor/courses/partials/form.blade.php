@@ -63,7 +63,7 @@
     </figure>
 
     <div>
-        <p class="mb-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum impedit consequuntur dolor consequatur ad quos velit voluptate non dicta ipsam sed necessitatibus quidem, dolorum odit, fuga deleniti perferendis! Magni, corporis.</p>
+        <p class="mb-2 text-justify">Ingrese una imagen para la portada de su curso haciendo clic sobre el botón “Seleccionar archivo”, luego escoja un archivo de imagen de su computador. Sino escoge una imagen se le asignara una de manera predeterminada.</p>
         {!! Form::file('file', ['class' =>'form-input w-full' . ($errors->has('file') ? ' border-red-600' : ''),'id' =>'file', 'accept' => 'image/*']) !!}
            
             @error('file')

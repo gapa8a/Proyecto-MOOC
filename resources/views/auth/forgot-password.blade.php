@@ -4,8 +4,12 @@
             <x-jet-authentication-card-logo />
         </x-slot>
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+        <div class="mb-4 text-lg font-bold text-gray-600">
+            {{ __('¿Olvidaste tu contraseña?') }}
+        </div>
+
+        <div class="mb-4 text-sm text-justify text-gray-600">
+            {{ __('No te preocupes, por favor en el siguiente campo ingresa tu correo electrónico con el cual te registraste dentro de la plataforma. Recibirás un enlace a tu correo electrónico que permitirá reiniciar tu contraseña.') }}
         </div>
 
         @if (session('status'))
@@ -26,7 +30,7 @@
 
             <div class="flex items-center justify-end mt-4">
                 <x-jet-button>
-                    {{ __('Email Password Reset Link') }}
+                    {{ __('Enviar') }}
                 </x-jet-button>
             </div>
         </form>

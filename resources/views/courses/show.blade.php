@@ -124,12 +124,13 @@
                                <a class="font-bold text-gray-500 mb-3" href="{{route('courses.show',$similar)}}">{{Str::limit($similar->title, 40)}}</a>
 
                             </h1>
-                        </div>
+                        
                         <div class="flex items-center mb-2">
                            <img class="h-8 w-8 object-cover rounded-full shadow-lg" src="{{$similar->teacher->profile_photo_url}}" alt=""> 
                            <p class="text-gray-700 text-sm ml-2">{{$similar->teacher->name}}</p>
                         </div>
                         <p class="text-sm"><i class="fas fa-star mr-2 text-yellow-400"> </i>{{$similar->rating}}</p>
+                    </div>
                     </article>
                 @endforeach
             </aside>
