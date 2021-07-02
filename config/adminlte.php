@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Proyecto</b>MOOC',
+    'logo' => '<b>Proyecto </b>MOOC',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -226,8 +226,8 @@ return [
     'menu' => [
         [
             'text' => 'search',
-            'search' => true,
-            'topnav' => true,
+            'search' => false,
+            'topnav' => false,
         ],
         [
             'text' => 'blog',
@@ -235,9 +235,9 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'Dashboard',
+            'text'        => 'Inicio',
             'route'         => 'admin.home',
-            'icon'        => 'fas fa-fw fa-tachometer-alt',
+            'icon'        => 'fas fa-home',
             'can'  => 'Ver Dashboard'
              // 'label'       => 4,
             // 'label_color' => 'success',

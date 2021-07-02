@@ -11,7 +11,9 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
+use App\Notifications\ResetPasswordNotification;
 use Spatie\Permission\Traits\HasRoles;
+
 
 class User extends Authenticatable
 {
@@ -55,6 +57,18 @@ class User extends Authenticatable
     ];
 
     /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
+    }
+
+
+    /**
      * The accessors to append to the model's array form.
      *
      * @var array
@@ -62,6 +76,11 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+
+ 
+
+    
     //Relación uno a uno
 
     public function profile(){
@@ -90,5 +109,7 @@ class User extends Authenticatable
     public function lessons(){
         return $this->belongsToMany('App\Models\Lesson');
     }
+
+    
 
 }
